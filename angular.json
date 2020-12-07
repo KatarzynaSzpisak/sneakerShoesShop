@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "onlineTShirtShop": {
+    "sneakersShoesShop": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,15 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/onlineTShirtShop",
+            "outputPath": "dist/sneakersShoesShop",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            
             "styles": [
               "src/custom-theme.scss",
               "src/styles.css"
@@ -59,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "onlineTShirtShop:build"
+            "browserTarget": "sneakersShoesShop:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "onlineTShirtShop:build:production"
+              "browserTarget": "sneakersShoesShop:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "onlineTShirtShop:build"
+            "browserTarget": "sneakersShoesShop:build"
           }
         },
         "test": {
@@ -85,10 +82,7 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
+           
           }
         },
         "lint": {
@@ -105,7 +99,7 @@
         }
       }
     },
-    "onlineTShirtShop-e2e": {
+    "sneakersShoesShop-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -114,11 +108,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "onlineTShirtShop:serve"
+            "devServerTarget": "sneakersShoesShop:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "onlineTShirtShop:serve:production"
+              "devServerTarget": "sneakersShoesShop:serve:production"
             }
           }
         },
@@ -134,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "onlineTShirtShop"
+  "defaultProject": "sneakersShoesShop"
 }
