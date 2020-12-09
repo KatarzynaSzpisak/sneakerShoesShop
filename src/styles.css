@@ -21,6 +21,7 @@ body {
 
 router-outlet + *  {
   padding: 0 16px;
+  
 }
 
 /* Text */
@@ -46,7 +47,7 @@ p {
 
 a {
   cursor: pointer;
-  color: #1976d2;
+  color: blueviolet;
   text-decoration: none;
 }
 
@@ -57,11 +58,12 @@ a:hover {
 /* Input */
 
 input {
-  font-size: 14px;
+  font-size: 25px;
   border-radius: 2px;
   padding: 8px;
   margin-bottom: 16px;
-  border: 1px solid #BDBDBD;
+  border: 1px bold #BDBDBD;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 label {
@@ -80,9 +82,10 @@ label {
   border-radius: 2px;
   font-size: 14px;
   cursor: pointer;
-  background-color: #91d219;
+  background-color: rgb(236, 178, 233);
   color: white;
   border: none;
+  margin: 15px;
 }
 
 .button:hover, button:hover {

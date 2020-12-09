@@ -11,9 +11,15 @@ export interface IProduct {
   actualCost: number;
   imageUrl: string;
   details: string;
-  colorName: string;
-  sizeName: string;
-  materialName: string;
+  color: {
+    colorName: string;
+  }
+  size: {
+    sizeName: string;
+  }
+  material: {
+    materialName: string;
+  }
 }
 
 @Component({
@@ -31,8 +37,7 @@ export class ProductListComponent {
 
   addToCart(product: IProduct) {
     console.log(this._service);
-    this._service
-      .addToCart(product);
+    this._service.addToCart(product);
   }
 
   share() {

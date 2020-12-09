@@ -13,7 +13,8 @@ export class CartService {
 
   constructor(
     private http: HttpClient,
-    private router: Router) {}
+    private router: Router) {
+  }
 
   firstLoad() {
     // TODO getItem in local storage
@@ -26,7 +27,7 @@ export class CartService {
     }
   }
 
-  async addToCart(product: IProduct) {
+  addToCart(product: IProduct) {
     this.items.push(product);
     localStorage.setItem('cart', JSON.stringify(this.items));
   }

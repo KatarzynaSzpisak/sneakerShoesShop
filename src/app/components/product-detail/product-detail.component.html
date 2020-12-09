@@ -1,24 +1,27 @@
 <div>
   <!-- back to shoping component -->
   <div class="container-btn-shipping">
-    <a [routerLink]="['/']" class="button fancy-button"><i class="material-icons">backspace</i>Back to cataloge</a>
+    <a [routerLink]="['/']" class="button"><i class="material-icons">backspace</i>Back to cataloge</a>
   </div>
 </div>
 
-<div>
+<div *ngIf="!product">
+  Loading...
+</div>
+<div *ngIf="product">
   <mat-card class="card">
     <mat-card-header>
       <br>
       <mat-card-title>{{ product.name }}</mat-card-title>
     </mat-card-header>
     <p>
-      <img mat-card-lg-image src="{{ product.imageUrl }}" alt="Photo shoes" />
+      <img mat-card-lg-image src="{{ product.imageUrl }}" alt="Photo shoes"/>
     </p>
     <mat-card-content>
       <p>Descrition: </p>{{ product.details }}
-      <p>Color: </p>{{ product.colorName }}
-      <p>Size:</p> {{ product.sizeName }}
-      <p>Material: </p>{{ product.materialName }}
+      <p>Color: </p>{{ product.color.colorName }}
+      <p>Size:</p> {{ product.size.sizeName }}
+      <p>Material: </p>{{ product.material.materialName }}
 
       <p> Price:</p> ${{ product.price }}
 

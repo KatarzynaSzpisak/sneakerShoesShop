@@ -2,12 +2,12 @@
 
 <!-- back to shoping component -->
 <div class="container-btn-shipping">
-  <a [routerLink]="['/']" class="button fancy-button"><i class="material-icons">backspace</i>Back to shopping</a>
+  <a [routerLink]="['/']" class="button"><i class="material-icons">backspace</i>Back to shopping</a>
 </div>
 
 <!-- shipping component -->
 <div class="container-btn-shipping">
-  <a [routerLink]="['/shipping']" class="button fancy-button"><i class="material-icons">local_shipping</i>Delivery Prices</a>
+  <a [routerLink]="['/shipping']" class="button"><i class="material-icons">local_shipping</i>Delivery Prices</a>
 </div>
 <hr>
 <!-- table -->
@@ -45,7 +45,7 @@
     <td>{{ this.cartService.totalPrice(items) | currency}}</td>
     <td></td>
     <td><a *ngIf="items != undefined && items. length > 0 "
-      [routerLink]="['/payment']" class="button fancy-button"><i class="material-icons">done_outline</i>Checkout</a></td>
+      [routerLink]="['/payment']" class="button"><i class="material-icons">done_outline</i>Checkout</a></td>
   </tfoot>
 </table>
 

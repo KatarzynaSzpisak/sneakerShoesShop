@@ -11,17 +11,15 @@ import { CartService } from '../../cart.service';
 export class ProductDetailComponent implements OnInit {
   productId: number;
   product: IProduct;
-  _service: CartService;
 
   constructor(
     private route: ActivatedRoute,
-    private service: CartService) {
-    this._service = service;
+    private cartService: CartService) {
   }
 
-  addToCart(product) {
+  addToCart(product: IProduct) {
+    this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
-    this._service.addToCart(product);
   }
 
   ngOnInit() {
