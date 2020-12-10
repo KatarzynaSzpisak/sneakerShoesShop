@@ -1,43 +1,21 @@
-import { Component } from '@angular/core';
-import { CartService } from 'src/app/cart.service';
-// import {MatCardModule, MatGridListModule } from '@angular/material';
-
-// import { product } from '../product';
-
-export interface IProduct {
-  id: number;
-  name: string;
-  price: number;
-  actualCost: number;
-  imageUrl: string;
-  details: string;
-  color: {
-    colorName: string;
-  }
-  size: {
-    sizeName: string;
-  }
-  material: {
-    materialName: string;
-  }
-}
+import {Component} from '@angular/core';
+import {CartService} from 'src/app/cart.service';
+import {IProduct} from "./i.product";
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent {
   products: IProduct[];
-  _service: CartService;
 
-  constructor(service: CartService) {
-    this._service = service;
+  constructor(public cartService: CartService) {
   }
 
   addToCart(product: IProduct) {
-    console.log(this._service);
-    this._service.addToCart(product);
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
   }
 
   share() {

@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { IProduct } from '../product-list/product-list.component';
-import { CartService } from '../../cart.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {CartService} from '../../cart.service';
+import {IProduct} from "../product-list/i.product";
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
   productId: number;
@@ -14,7 +14,7 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService) {
+    public cartService: CartService) {
   }
 
   addToCart(product: IProduct) {

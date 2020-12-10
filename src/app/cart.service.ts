@@ -1,15 +1,13 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { IProduct } from './components/product-list/product-list.component';
-import { Observable } from 'rxjs';
-import { isNgTemplate } from '@angular/compiler';
-import { Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {IProduct} from "./components/product-list/i.product";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  items = [];
+  items: IProduct[] = [];
 
   constructor(
     private http: HttpClient,
@@ -17,6 +15,8 @@ export class CartService {
   }
 
   firstLoad() {
+    console.log("cartservice: firstload")
+
     // TODO getItem in local storage
     const fromLs = localStorage.getItem('cart');
     if (fromLs === undefined) {
@@ -37,7 +37,7 @@ export class CartService {
   }
 
   async removeCartItemAsync(orderRowId) {
-    const response = await fetch(
+    return fetch(
       'http://localhost:5000/orderRow/' + orderRowId,
       {
         method: 'DELETE'
@@ -45,11 +45,12 @@ export class CartService {
     );
   }
 
-  removeCartItem(orderRowId) {
-    // TODO splice items array?
-    this.removeCartItemAsync(orderRowId).then(_ => location.reload());
-    localStorage.setItem('cart', JSON.stringify(this.items));
-
+  removeCartItem(index: number) {
+    // this.removeCartItemAsync(orderRowId).then(_ => location.reload());
+    // this.items = this.items.filter((i: IProduct) => i.id != orderRowId)
+    this.items.splice(index, 1)
+    console.log(this.items)
+    localStorage.setItem('cart', JSON.stringify(this.items))
   }
 
   totalPrice(items) {

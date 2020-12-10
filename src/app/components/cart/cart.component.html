@@ -2,50 +2,57 @@
 
 <!-- back to shoping component -->
 <div class="container-btn-shipping">
-  <a [routerLink]="['/']" class="button"><i class="material-icons">backspace</i>Back to shopping</a>
+  <a [routerLink]="['/']" class="button"><i class="material-icons">backspace</i>Back
+    to shopping</a>
 </div>
 
 <!-- shipping component -->
 <div class="container-btn-shipping">
-  <a [routerLink]="['/shipping']" class="button"><i class="material-icons">local_shipping</i>Delivery Prices</a>
+  <a [routerLink]="['/shipping']" class="button"><i class="material-icons">local_shipping</i>Delivery
+    Prices</a>
 </div>
 <hr>
 <!-- table -->
 <table class="table cart">
   <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Color</th>
-      <th scope="col">Size</th>
-      <th scope="col">Material</th>
-      <th scope="col">Price</th>
-      <th></th>
-    </tr>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Color</th>
+    <th scope="col">Size</th>
+    <th scope="col">Material</th>
+    <th scope="col">Price</th>
+    <th></th>
+  </tr>
   </thead>
+
   <tbody>
-    <tr *ngFor="let item of items; index as i" >
-      <th scope="row">{{ i + 1 }}</th>
-      <td>{{item.name}}</td>
-      <td>{{item.color.colorName}}</td>
-      <td>{{item.size.sizeName}}</td>
-      <td>{{item.material.materialName}}</td>
-      <td>{{item.price}}</td>
-      <td></td>
-      <td>
-        <button mat-button (click)="this.cartService.removeCartItem(item.id)"><i class="material-icons">delete</i></button></td>
-    </tr>
+  <tr *ngFor="let item of this.cartService.getItems(); index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>{{item.name}}</td>
+    <td>{{item.color.colorName}}</td>
+    <td>{{item.size.sizeName}}</td>
+    <td>{{item.material.materialName}}</td>
+    <td>{{item.price}}</td>
+    <td></td>
+    <td>
+      <button mat-button (click)="this.removeCartItem(i)"><i
+        class="material-icons">delete</i></button>
+    </td>
+  </tr>
   </tbody>
+
   <tfoot>
-    <th>Total</th>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>{{ this.cartService.totalPrice(items) | currency}}</td>
-    <td></td>
-    <td><a *ngIf="items != undefined && items. length > 0 "
-      [routerLink]="['/payment']" class="button"><i class="material-icons">done_outline</i>Checkout</a></td>
+  <th>Total</th>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>{{ this.cartService.totalPrice(cartService.getItems()) | currency}}</td>
+  <td></td>
+  <td><a *ngIf="cartService.getItems()"
+         [routerLink]="['/payment']" class="button"><i class="material-icons">done_outline</i>Checkout</a>
+  </td>
   </tfoot>
 </table>
 

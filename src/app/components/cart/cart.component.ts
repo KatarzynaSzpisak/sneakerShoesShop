@@ -1,44 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { CartService } from '../../cart.service';
-
-interface IProduct {
-  id: number;
-  name: string;
-  price: number;
-  actualCost: number;
-  imageUrl: string;
-  details: string;
-  colorName: string;
-  sizeName: string;
-  materialName: string;
-}
+import {CartService} from '../../cart.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  items;
-
-
-  constructor(
-    private cartService: CartService,
-    ) { }
-
+  constructor(public cartService: CartService,) {
+  }
 
   ngOnInit() {
-    this.items = this.cartService.getItems();
-    console.log(this.items);
+    console.log(this.cartService.getItems())
   }
 
   onSubmit(customerData) {
     // Process checkout data here
     console.warn('Your order has been submitted', customerData);
-
-    this.items = this.cartService.clearCart();
-
+    this.cartService.clearCart();
   }
 
+  removeCartItem(id: number) {
+    this.cartService.removeCartItem(id)
+    window.location.reload()
+  }
 }

@@ -8,6 +8,7 @@
 <div *ngIf="!product">
   Loading...
 </div>
+
 <div *ngIf="product">
   <mat-card class="card">
     <mat-card-header>
@@ -18,12 +19,12 @@
       <img mat-card-lg-image src="{{ product.imageUrl }}" alt="Photo shoes"/>
     </p>
     <mat-card-content>
-      <p>Descrition: </p>{{ product.details }}
-      <p>Color: </p>{{ product.color.colorName }}
-      <p>Size:</p> {{ product.size.sizeName }}
-      <p>Material: </p>{{ product.material.materialName }}
+      <p>Description: {{ product.details }}</p>
+      <p>Color: {{ product.color.colorName }}</p>
+      <p>Size: {{ product.size.sizeName }}</p>
+      <p>Material: {{ product.material.materialName }}</p>
 
-      <p> Price:</p> ${{ product.price }}
+      <p>Price: ${{ product.price }}</p>
 
     </mat-card-content>
     <div class="container-btn">

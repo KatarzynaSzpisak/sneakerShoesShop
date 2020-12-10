@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CartService } from './cart.service';
+import {Component} from '@angular/core';
+import {CartService} from './cart.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +7,10 @@ import { CartService } from './cart.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private service: CartService) {}
+  constructor(private cartService: CartService) {
+  }
 
   ngOnInit() {
-    this.service.firstLoad();
+    this.cartService.firstLoad();
   }
 }

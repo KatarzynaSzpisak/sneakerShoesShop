@@ -1,22 +1,25 @@
 <mat-card class="card" *ngFor="let product of products">
   <mat-card-header>
     <mat-card-title>
-      <a [title]="'More about ' + product.name + ' details'" [routerLink]="['/product', product.id]">
+      <a [title]="'More about ' + product.name + ' details'"
+         [routerLink]="['/product', product.id]">
         {{ product.name }}</a>
-      <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
+      <app-product-alerts [product]="product"
+                          (notify)="onNotify()"></app-product-alerts>
     </mat-card-title>
   </mat-card-header>
   <p *ngIf="product.imageUrl !== ''">
-    <img mat-card-lg-image src='{{product.imageUrl}}' alt="Photo shoes" />
+    <img mat-card-lg-image src='{{product.imageUrl}}' alt="Photo shoes"/>
   </p>
   <mat-card-content>
     <p>Descrition:</p>{{ product.details }}
 
     <p>Price:</p> ${{ product.price }}
 
-   
+
     <div class="container-btn">
       <button mat-button (click)="share()"><i class="material-icons">share</i>Share</button>
+      <button mat-button (click)="addToCart(product)"><i class="material-icons">add_shopping_cart</i>Buy</button>
     </div>
   </mat-card-content>
 </mat-card>
