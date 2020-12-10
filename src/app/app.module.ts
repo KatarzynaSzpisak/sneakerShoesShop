@@ -22,7 +22,7 @@ import {PaymentComponent} from './components/payment/payment.component';
 import {UserComponent} from './components/user/user.component';
 import {ThanksComponent} from './components/thanks/thanks.component';
 import {OrdersComponent} from './components/admin/orders/orders.component';
-import {CartService} from "./cart.service";
+//import {CartService} from "./cart.service";
 
 @NgModule({
   imports: [
@@ -50,7 +50,7 @@ import {CartService} from "./cart.service";
     OrdersComponent
   ],
   bootstrap: [AppComponent],
-  providers: [CartService],
+  //providers: [CartService],
 })
 export class AppModule {
 }

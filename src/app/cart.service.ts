@@ -23,7 +23,7 @@ export class CartService {
       // do nothing
       this.items = [];
     } else {
-      this.items = JSON.parse(fromLs);
+      this.items = JSON.parse(fromLs) || [];
     }
   }
 
